@@ -11,7 +11,7 @@
  } 
  void draw()   
  {    
- 	background(255);
+ 	background(0);
  	for(int i = 0;i<Crowd.length;i++)
  	{
  		Crowd[i].show();
@@ -24,19 +24,26 @@
  	int myX,myY,switchDir,xMove,yMove;
  	Person()
  	{
- 		myX = myY = 250;
- 		/*myX = (int)(Math.random()*500)+1;
+ 		myX = (int)(Math.random()*500)+1;
  		myY = (int)(Math.random()*500)+1;
- 		*/
  	}
  	void changeDir()
  	{
  		switchDir = (int)(Math.random()*100)+1;
- 		if(switchDir < 5)
- 		{
- 			xMove = (int)(Math.random()*5)-2;
- 			yMove = (int)(Math.random()*5)-2;
- 		}
+ 		if(myX <= 0)
+ 			xMove = (int)(Math.random()*2) + 1;
+ 		else if(myX >= 500)
+ 			xMove = (int)(Math.random()*2) - 2;
+ 		if(myY <= 0)
+ 			yMove = (int)(Math.random()*2) + 1;
+ 		else if(myY >= 500)
+ 			yMove = (int)(Math.random()*2) - 2;
+ 		if(myX > 0 && myX < 500)
+	 		if(switchDir < 5)
+	 			xMove = (int)(Math.random()*5)-2;
+	 	if(myY > 0 && myY < 500)
+	 		if(switchDir < 5)
+	 			yMove = (int)(Math.random()*5)-2;
  	}
  	void walk()
  	{
